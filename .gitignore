@@ -1,0 +1,12 @@
+node_modules
+.next
+.open-next
+.env
+.env.local
+.dev.vars
+.uploads
+*.tsbuildinfo
+next-env.d.ts
+/freebuff-sites-build/
+/.open-next/
+/.wrangler/
