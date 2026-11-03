@@ -7,6 +7,5 @@ node_modules
 .uploads
 *.tsbuildinfo
 next-env.d.ts
-/freebuff-sites-build/
 /.open-next/
 /.wrangler/
