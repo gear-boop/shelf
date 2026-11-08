@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+
+  --color-paper: #171614;
+  --color-card: #1e1d1a;
+  --color-ink: #ece9e1;
+  --color-clay: #d3795f;
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga";
+}
+
+::selection {
+  background: var(--color-clay);
+  color: #171614;
+}
+
+/* ---------- studio form atoms ---------- */
+
+.field {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid rgba(236, 233, 225, 0.17);
+  background: rgba(236, 233, 225, 0.035);
+  padding: 0.5rem 0.65rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.field::placeholder {
+  color: rgba(236, 233, 225, 0.33);
+}
+
+.field:focus {
+  border-color: rgba(236, 233, 225, 0.5);
+  box-shadow: 0 0 0 3px rgba(236, 233, 225, 0.07);
+}
+
+select.field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23ece9e1' stroke-opacity='0.5' stroke-width='1.2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  padding-right: 1.7rem;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(236, 233, 225, 0.48);
+  margin-bottom: 0.38rem;
+}
+
+.panel {
+  background: var(--color-card);
+  border: 1px solid rgba(236, 233, 225, 0.12);
+  border-radius: 10px;
+}
+
+.hairline {
+  border-color: rgba(236, 233, 225, 0.11);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* ---------- generated storefront ---------- */
+
+.storefront {
+  background: var(--sf-bg);
+  color: var(--sf-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+.storefront .sf-serif {
+  font-family: "Iowan Old Style", "Palatino Linotype", "URW Palladio L", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.storefront .sf-mono {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.storefront .sf-wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .storefront .sf-wrap {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.storefront .sf-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--sf-line);
+  background: var(--sf-surface);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--sf-ink);
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.storefront .sf-input::placeholder {
+  color: var(--sf-muted);
+  opacity: 0.75;
+}
+
+.storefront .sf-input:focus {
+  border-color: var(--sf-accent);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+.storefront .sf-step {
+  height: 2.25rem;
+  width: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--sf-line);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background 150ms ease;
+}
+
+.storefront .sf-step:hover {
+  background: color-mix(in srgb, var(--sf-accent) 10%, transparent);
+}
+
+.storefront details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.storefront details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.storefront details[open] .sf-plus {
+  transform: rotate(45deg);
+}
+
+.storefront a,
+.storefront button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sf-link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation: none !important;
+  }
+}
